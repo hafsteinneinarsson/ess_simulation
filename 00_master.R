@@ -15,12 +15,13 @@ library("scales")
 library("patchwork")
 library("gridExtra")
 library("broom")
+library("rstatix")
 
 
 # 1. Clean the data and create the dataset contacts.Rdata which will be used in the analysis
 
 # source(here::here("01_contact_data.R")) OR
-# readRDS(here("Data", "contacts.Rdata"))
+contacts <- readRDS(here("Data", "contacts.Rdata"))
 
 # 2. Get R-indicator functions from the RISQ project
 

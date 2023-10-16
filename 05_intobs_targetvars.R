@@ -1,4 +1,6 @@
-library(rstatix)
+ESS.survey.contact <- readRDS(here::here("Data", "ESS_survey_and_contact_data_analysed.Rdata")) %>% 
+  filter(cntry.round %in% included.cntry.rounds)
+
 
 ESS.targetvars <- ESS.survey.contact  %>%
   filter(essround > 5) %>% 
@@ -138,9 +140,7 @@ combined  %>%
   theme(legend.position="bottom") 
 
 
-ggsave("Figures/cohens_adaptive.svg", height = 9.5, width = 7)
 
-
-
+ggsave(here("Figures/Appendix_figure5_cohens_adaptive.tiff"), height = 9.5, width = 7, dpi = 300, device = "tiff", compression = "lzw") 
 
 

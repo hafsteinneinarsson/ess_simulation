@@ -826,7 +826,7 @@ r.summary <- rbind(r.summary.dem.bottom, r.summary.dem.top, r.summary.full.dem.b
                                               "Slovenia-7", "Slovenia-8","Slovenia-9", "Slovenia-10",
                                               "Switzerland-7", "Switzerland-9", "Switzerland-10"))) 
 
-# Figure 1 
+# Figure 2 
 
 r.summary %>% 
   filter(Rindicator == "Full") %>% 
@@ -846,7 +846,9 @@ r.summary %>%
 
 
 
-ggsave(here("Figures/CVs.svg"), height = 11, width = 11) 
+
+ggsave(here("Figures/Figure2_CVs.tiff"), height = 11, width = 11, dpi = 300, device = "tiff", compression = "lzw") 
+
 
 
 # Difference between bottom and random selection
@@ -864,7 +866,7 @@ r.summary %>%
 
 
 
-# Appendix Figure 1 
+# Appendix Figure 2 
 
 r.summary %>% 
   filter(Rindicator == "Dem") %>% 
@@ -883,10 +885,10 @@ r.summary %>%
 
 
 
-ggsave(here("Figures/CVs_dem.svg"), height = 14, width = 11) 
+ggsave(here("Figures/Appendix_figure2_CVs_dem.tiff"), height = 14, width = 11, dpi = 300, device = "tiff", compression = "lzw") 
 
 
-# Figure 2 Response Rates 
+# Figure 3 Response Rates 
 
 r.summary %>% 
   filter(Rindicator == "Full") %>% 
@@ -896,7 +898,6 @@ r.summary %>%
   theme_bw() +
   scale_y_continuous(breaks = seq(0.35, 0.65, by = 0.1), labels = scales::percent) +
   scale_fill_viridis_d(option = "A", begin = 0.20, end = 0.8) +
-  #   scale_x_discrete(width = 0.5) +
   facet_wrap(~selected, ncol = 4,) +
   labs(x = "Country-round", y = "Response rate", fill = "Covariates") + 
   theme(legend.position = "bottom",
@@ -905,8 +906,8 @@ r.summary %>%
         axis.text = element_text(size = 14))
 
 
-ggsave(here("Figures/response_rates.svg"), 
-       height = 11, width = 11) 
+ggsave(here("Figures/Figure3_response_rates.tiff"), 
+       height = 11, width = 11, dpi = 300, device = "tiff", compression = "lzw") 
 
 
 
@@ -1140,7 +1141,7 @@ contacts.status.all %>%
         axis.text = element_text(size = 14)) +
   guides(fill = guide_legend(ncol = 6))
 
-ggsave(here("Figures/attepmts_saved.svg"), height = 11, width = 11) 
+ggsave(here("Figures/Figure4_attepmts_saved.tiff"), height = 11, width = 11, dpi = 300, device = "tiff", compression = "lzw", bg = "white") 
 
 
 
@@ -1183,7 +1184,7 @@ contacts.status.all %>%
 
 
 
-ggsave(here("Figures/selectionmodels.svg"), height = 14, width = 11) 
+ggsave(here("Figures/Figure1_selectionmodels.tiff"), height = 14, width = 11, dpi = 300, device = "tiff", compression = "lzw", bg = "white") 
 
 
 
@@ -1224,7 +1225,7 @@ contacts.status.all %>%
        color = "Sim3 Rank") 
 
 
-ggsave(here("Figures/selectionmodels_model1.svg"), height = 14, width = 11) 
+ggsave(here("Figures/Appendix_figure1_selectionmodels_model1.tiff"), height = 14, width = 11, dpi = 300, device = "tiff", compression = "lzw", bg = "white") 
 
 
 
@@ -1248,7 +1249,7 @@ contacts.status.all |>
   facet_wrap(cntry.round ~ ., scales="free", nrow = 5)  +
   scale_y_continuous(labels = scales::percent)
 
-ggsave(here("Figures/predictionsSim2Model4.svg"), height = 14, width = 11) 
+ggsave(here("Figures/predictionsSim2Model4.tiff"), height = 14, width = 11) 
 
 
 
@@ -1269,7 +1270,7 @@ contacts.status.all |>
   facet_wrap(cntry.round ~ ., scales="free", nrow = 5) +
   scale_y_continuous(labels = scales::percent)
 
-ggsave(here("Figures/predictionsSim2Model2.svg"), height = 14, width = 11) 
+ggsave(here("Figures/predictionsSim2Model2.tiff"), height = 14, width = 11) 
 
 
 
@@ -1290,7 +1291,7 @@ contacts.status.all |>
   facet_wrap(cntry.round ~ ., scales="free", nrow = 5)  +
   scale_y_continuous(labels = scales::percent)
 
-ggsave(here("Figures/predictionsSim1Model3.svg"), height = 14, width = 11) 
+ggsave(here("Figures/predictionsSim1Model3.tiff"), height = 14, width = 11) 
 
 
 
@@ -1311,7 +1312,7 @@ contacts.status.all |>
   facet_wrap(cntry.round ~ ., scales="free", nrow = 5) +
   scale_y_continuous(labels = scales::percent)
 
-ggsave(here("Figures/predictionsSim1Model1.svg"), height = 14, width = 11) 
+ggsave(here("Figures/predictionsSim1Model1.tiff"), height = 14, width = 11) 
 
 
 
